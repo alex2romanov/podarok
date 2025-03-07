@@ -14,10 +14,15 @@ const countryPhoto = document.getElementById('countryPhoto');
 const memoryBox = document.getElementById('memoryBox');
 
 const memories = {
-    france: { text: "Круассаны под Эйфелевой башней!", photo: "france.jpg" },
-    japan: { text: "Суши и прыжки над Фудзи!", photo: "japan.jpg" },
-    italy: { text: "Пицца в Риме и мечты о Тоскане!", photo: "italy.jpg" }
-    // Добавьте остальные 10 стран
+    france: { text: "Поцелуй под Эйфелевой башней!", photo: "france.jpg" },
+    penida: { text: "Ранний подъем и экстаз!", photo: "penida.jpg" },
+    elephant: { text: "До чего же большие гиганты!", photo: "elephants.jpg" },
+    siargao: { text: "Побыли в раю на краю мира:)", photo: "siargao.jpg" },
+    dragon: { text: "Увидели настоящего дракона и не были съедены!!", photo: "dragon.jpg" },
+    danang: { text: "Оставалась сильной и непобедимой", photo: "danang.jpg" },
+    parents: { text: "Училась быть терпиливой", photo: "parents.jpg" },
+    vova: { text: "Любили и заботились о нашем любимом", photo: "vova.jpg" },
+    komodo: { text: "Покоряли вершины!", photo: "komodo.jpg" }
 };
 
 countryButtons.forEach(button => {
