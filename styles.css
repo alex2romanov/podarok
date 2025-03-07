@@ -46,7 +46,7 @@ button {
     border-radius: 10px;
     color: white;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+   绘制: transform 0.3s, box-shadow 0.3s;
     margin: 5px;
 }
 
@@ -65,6 +65,17 @@ button:hover {
 
 .hidden {
     display: none;
+}
+
+#memoryBox {
+    margin-top: 20px;
+}
+
+.photo {
+    max-width: 300px;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: opacity 0.5s;
 }
 
 #futureBox {
