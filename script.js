@@ -14,19 +14,10 @@ const countryPhoto = document.getElementById('countryPhoto');
 const memoryBox = document.getElementById('memoryBox');
 
 const memories = {
-    france: {
-        text: "Помнишь, как мы ели круассаны под Эйфелевой башней?",
-        photo: "france.jpg"
-    },
-    japan: {
-        text: "Суши в Токио и наши прыжки с парашютом над Фудзи!",
-        photo: "france.jpg"
-    },
-    italy: {
-        text: "Пицца в Риме и мечты о Тоскане — скоро это будет реальностью!",
-        photo: "france.jpg"
-    }
-    // Добавьте остальные 10 стран с воспоминаниями и путями к фото
+    france: { text: "Круассаны под Эйфелевой башней!", photo: "france.jpg" },
+    japan: { text: "Суши и прыжки над Фудзи!", photo: "japan.jpg" },
+    italy: { text: "Пицца в Риме и мечты о Тоскане!", photo: "italy.jpg" }
+    // Добавьте остальные 10 стран
 };
 
 countryButtons.forEach(button => {
@@ -41,6 +32,22 @@ countryButtons.forEach(button => {
         countryPhoto.classList.remove('hidden');
     });
 });
+
+// Проверка URL и отправка подарка
+const urlParams = new URLSearchParams(window.location.search);
+const giftMessage = document.getElementById('giftMessage');
+
+if (urlParams.get('gift') === 'true') {
+    giftMessage.classList.remove('hidden');
+    fetch('https://<ваш-сервер>.com/send-gift', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: '[её_email]', username: '[Имя]' })
+    })
+    .then(response => response.json())
+    .then(data => console.log('Email sent:', data))
+    .catch(error => console.error('Error sending gift:', error));
+}
 
 // Анимация падающих парашютов
 const canvas = document.getElementById('parachuteCanvas');
