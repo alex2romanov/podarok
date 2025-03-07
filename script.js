@@ -7,22 +7,38 @@ futureButton.addEventListener('click', () => {
     futureButton.classList.add('hidden');
 });
 
-// Воспоминания по странам
+// Воспоминания и фото по странам
 const countryButtons = document.querySelectorAll('.country');
 const memory = document.getElementById('memory');
+const countryPhoto = document.getElementById('countryPhoto');
+const memoryBox = document.getElementById('memoryBox');
 
 const memories = {
-    france: "Помнишь, как мы ели круассаны под Эйфелевой башней?",
-    japan: "Суши в Токио и наши прыжки с парашютом над Фудзи!",
-    italy: "Пицца в Риме и мечты о Тоскане — скоро это будет реальностью!"
-    // Добавьте свои воспоминания для остальных 10 стран
+    france: {
+        text: "Помнишь, как мы ели круассаны под Эйфелевой башней?",
+        photo: "france.jpg"
+    },
+    japan: {
+        text: "Суши в Токио и наши прыжки с парашютом над Фудзи!",
+        photo: "france.jpg"
+    },
+    italy: {
+        text: "Пицца в Риме и мечты о Тоскане — скоро это будет реальностью!",
+        photo: "france.jpg"
+    }
+    // Добавьте остальные 10 стран с воспоминаниями и путями к фото
 };
 
 countryButtons.forEach(button => {
     button.addEventListener('click', () => {
         const country = button.getAttribute('data-country');
-        memory.textContent = memories[country] || "Ещё одно приключение с тобой!";
-        memory.classList.remove('hidden');
+        const memoryData = memories[country] || { text: "Ещё одно приключение с тобой!", photo: "default.jpg" };
+        
+        memory.textContent = memoryData.text;
+        countryPhoto.src = memoryData.photo;
+        
+        memoryBox.classList.remove('hidden');
+        countryPhoto.classList.remove('hidden');
     });
 });
 
@@ -46,7 +62,7 @@ class Parachute {
     draw() {
         ctx.fillStyle = '#ff9999';
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI, true); // Полукруг парашюта
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI, true);
         ctx.fill();
         ctx.strokeStyle = '#fff';
         ctx.beginPath();
