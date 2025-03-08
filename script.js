@@ -102,9 +102,43 @@ class Parachute {
         }
     }
 }
+class Heart {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height - canvas.height;
+        this.size = Math.random() * 15 + 5; // Сердечки чуть меньше парашютов
+        this.speed = Math.random() * 1.5 + 0.5; // Чуть быстрее, чтобы разнообразить
+        this.angle = 0; // Для вращения
+    }
+
+    draw() {
+        ctx.fillStyle = '#ff69b4'; // Розовый цвет для сердечек
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+        ctx.beginPath();
+        ctx.moveTo(0, this.size / 2);
+        ctx.bezierCurveTo(-this.size, -this.size / 2, -this.size, -this.size * 1.5, 0, -this.size);
+        ctx.bezierCurveTo(this.size, -this.size * 1.5, this.size, -this.size / 2, 0, this.size / 2);
+        ctx.fill();
+        ctx.restore();
+    }
+    update() {
+        this.y += this.speed;
+        this.angle += this.speed * 0.05; // Вращение для динамики
+        if (this.y > canvas.height + this.size) {
+            this.y = -this.size;
+            this.x = Math.random() * canvas.width;
+        }
+    }
+}
 
 for (let i = 0; i < parachuteCount; i++) {
     parachutes.push(new Parachute());
+}
+// Создаём сердечки
+for (let i = 0; i < heartCount; i++) {
+    hearts.push(new Heart());
 }
 
 function animate() {
@@ -112,6 +146,10 @@ function animate() {
     parachutes.forEach(parachute => {
         parachute.update();
         parachute.draw();
+    });
+    hearts.forEach(heart => {
+        heart.update();
+        heart.draw();
     });
     requestAnimationFrame(animate);
 }
