@@ -17,7 +17,7 @@ const memories = {
     france: { text: "Поцелуй под Эйфелевой башней!", photo: "france.jpg" },
     penida: { text: "Ранний подъем и экстаз!", photo: "penida.jpg" },
     elephant: { text: "До чего же большие гиганты!", photo: "elephant.jpg" },
-    siargao: { text: "Побыли в раю на краю мира:)", photo: "siargao.jpg" },
+    siargao: { text: "Побыли в раю на краю мира:) Самая красивая!!!", photo: "siargao.jpg" },
     dragon: { text: "Увидели настоящего дракона и не были съедены!!", photo: "dragon.jpg" },
     danang: { text: "Оставалась сильной и непобедимой", photo: "danang.jpg" },
     parents: { text: "Училась быть терпиливой", photo: "parents.jpg" },
