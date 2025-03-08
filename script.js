@@ -70,7 +70,9 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const parachutes = [];
+const hearts = [];
 const parachuteCount = 20;
+const heartCount = 20;
 
 class Parachute {
     constructor() {
