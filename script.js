@@ -7,6 +7,15 @@ futureButton.addEventListener('click', () => {
     futureButton.classList.add('hidden');
 });
 
+// Показать подарок (массаж)
+const giftButton = document.getElementById('giftButton');
+const giftBox = document.getElementById('giftBox');
+
+giftButton.addEventListener('click', () => {
+    giftBox.classList.remove('hidden');
+    giftButton.classList.add('hidden');
+});
+
 // Воспоминания и фото по странам
 const countryButtons = document.querySelectorAll('.country');
 const memory = document.getElementById('memory');
